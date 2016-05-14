@@ -1,0 +1,32 @@
+---
+layout: render/demo/demo.html
+title: Jswalker demo project
+---
+
+<!-- Head block -->
+[[##head:
+<head>
+<title>[[= layout.title ]]</title>
+<link rel='stylesheet'  href='[[=model.base.css]]/demo.css' />
+</head>
+#]]
+<!-- Head block -->
+
+<!-- Common block -->
+[[##header:
+  [[= partial('render/common/header.html') ]]
+#]]
+
+<!-- Common block -->
+
+<!-- Script block -->
+[[##script:
+<script type='text/javascript' src='[[=model.base.js]]/jswalker-core.js' ></script>
+<script type='text/javascript' src='[[=model.base.js]]/demo.js' ></script>
+
+<!--Template engine area-->
+[[= partial('render/demo/demo.js') ]]
+<!--Template engine area-->
+
+#]]
+<!-- Script block -->

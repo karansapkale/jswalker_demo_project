@@ -1,0 +1,78 @@
+{
+  "name": "Jswalker-Demo",
+  "version": "0.0.1",
+  "description": "Jswalker Demo project",
+  "author": "Jayesh Sapkale <node.jayesh@gmail.com>",
+  "keywords": [
+    "jswalker",
+    "mvc",
+    "express",
+    "sintra",
+    "realtime",
+    "latest",
+    "highly configurable",
+    "documentation"
+  ],
+
+  "main": "app.js",
+  
+  "preferGlobal": false,
+
+  "dependencies": {
+
+    "async": "2.0.0-rc.4",
+
+    "body-parser": "latest",
+    "compress": "latest",
+    "compression": "latest",
+    "connect": "latest",
+    "connect-redis": "latest",
+    "cookie-parser": "latest",
+
+    "debug": "latest",
+    "dot": "^1.0.3",
+
+    "express": "^4.13.3",
+
+    "express-dot-engine": "^1.0.7",
+
+    "express-session": "^1.13.0",
+
+    "https": "^1.0.0",
+
+    "jswalker_system": "0.0.9",
+    "jswalker_query": "0.0.9",
+    "jswalker_booster": "0.0.9",
+    "jswalker_redis": "0.0.9",
+    "jswalker_error": "0.0.9",
+    "jswalker_mx": "0.0.9",
+    
+
+    "method-override": "^2.3.5",
+
+    "mysql": "^2.10.2",
+    "mysql2": "^1.0.0-rc.1",
+
+    "nodemailer": "^2.3.2",
+
+    "redis": "^2.6.0-2",
+
+    "redis-session": "^0.1.0",
+
+    "serve-favicon": "latest",
+
+    "socket.io": "1.4.6",
+
+    "syntax-error": "1.1.6",
+
+    "winston": "^2.2.0"
+
+  },
+  
+  
+  "devDependencies": {
+  },
+
+  "license": "MIT"
+
+}

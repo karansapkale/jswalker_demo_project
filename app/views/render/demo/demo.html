@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	[[= layout.head]]
+</head>
+
+<body>
+
+	<div id="wrapper" class='container is-fluid'>
+
+		[[= layout.header]]
+
+		<div class="main">
+
+
+			<div class='dot-template-server-side-rendering-block'>
+
+				<h1>doT template server side rendering.</h1>
+
+				<div class='dot-template-server-side-rendering-result'>
+				   [[var server_data=model.server_data;]]	
+
+				   [[for(i=0;i<server_data.length;i++) { ]]
+
+				   	  	<p>Test value : [[=server_data[i].test_value]] </p>
+
+ 						<p>Test string : [[=server_data[i].test_string]] </p>
+
+				   [[ } ]]
+				</div>
+
+			</div>	
+
+
+
+			<div class='dot-template-client-side-rendering-block'>
+			
+				<h1>doT template client side rendering.</h1>
+
+				<div class='dot-template-client-side-rendering-result'>
+				</div>
+
+			</div>
+
+
+			<h1>Go to console and see output.</h1>
+
+			<h3> Any problem visit documentation  : <a target='_blank' href='https://github.com/jayesh-sapkale/jswalker-doc.git' > Here </a> </h3>
+
+
+			<h1>Contribute to make <a target='_blank' href='https://github.com/jayesh-sapkale/jswalker-doc.git' > Jswalker documentation</a>  and add new features in <a target='_blank' href='https://github.com/Js-Walker-org' >JSWALKER</a> </h1>
+
+
+	  </div>
+
+	</div>	
+
+</body>
+
+[[= layout.script]]
+
+</html>

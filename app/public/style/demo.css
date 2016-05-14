@@ -1,0 +1,20 @@
+body{}
+
+.main{
+	margin:50px 0;
+}
+
+
+h1{font-size: 19px;}
+
+
+.dot-template-server-side-rendering-block{    float: left;
+    width: 100%;
+    display: block;}
+.dot-template-server-side-rendering-result{padding:30px 5px;box-sizing:border-box;}
+
+
+.dot-template-client-side-rendering-block{    float: left;
+    width: 100%;
+    display: block;}
+.dot-template-client-side-rendering-result{padding:30px 5px;box-sizing:border-box;}
