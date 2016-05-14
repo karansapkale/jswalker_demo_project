@@ -40,12 +40,12 @@
 
     "https": "^1.0.0",
 
-    "jswalker_system": "0.0.9",
-    "jswalker_query": "0.0.9",
-    "jswalker_booster": "0.0.9",
-    "jswalker_redis": "0.0.9",
-    "jswalker_error": "0.0.9",
-    "jswalker_mx": "0.0.9",
+    "jswalker_system": "0.0.13",
+    "jswalker_query": "0.0.12",
+    "jswalker_booster": "0.0.12",
+    "jswalker_redis": "0.0.12",
+    "jswalker_error": "0.0.12",
+    "jswalker_mx": "0.0.12",
     
 
     "method-override": "^2.3.5",
