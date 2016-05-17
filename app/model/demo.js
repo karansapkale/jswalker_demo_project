@@ -1,5 +1,4 @@
 
-
 /*Ajax*/
 module.exports.select_data=function(op,callback){
 

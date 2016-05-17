@@ -5,7 +5,9 @@ var demo = {
 
 		/*With Authentication*/
 		var model=op.model;
+
 		var demo_model=model.get("demo");
+
 		var auth=op.auth;
 			auth.test(op,function(auth_op){
 				if(auth_op.status==true){

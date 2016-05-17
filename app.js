@@ -3,6 +3,10 @@
 // 'use strict';
 // require('@risingstack/trace');
 
+
+
+
+
 var JSWALKER=require("jswalker_system/system/js_walker.js");
 
 //require("./system/js_walker.js").load({
@@ -16,16 +20,16 @@ JSWALKER.load({
 	/*Node js server it self*/
 	base:{
 		app_path:process.cwd(),
-		port:8080,
-		js:"/script",
-		css:"/style",
-		image:"/images"
+		port:80,
+		js:"http://localhost:80/script",
+		css:"http://localhost:80/style",
+		image:"http://localhost:80/images"
 	},
 	/*Node js server it self*/
 
-	cluster:{flag:false},
+	cluster:{flag:true},
 
-	redis:{flag:false,port:6379},
+	redis:{flag:true,port:6379},
 
 	socket:{flag:true,port:8081,flavour:"socket-io"}, //flavour:single-core-socket-io,multi-core-single-socket-io,multi-core-with-socket-cluster
 
