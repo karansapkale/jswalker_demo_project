@@ -1,18 +1,20 @@
 
+
+
 /*Ajax*/
 module.exports.select_data=function(op,callback){
 
 	var system_op=op;
 	var ziel=op.ziel; // Data from client 
-	var _test="select * from test";
+	var mongo=op.mongo;
 
-	//console.log(_test);
-
+	var _test_="select * from test";
 	require("jswalker_query").select({
 		system_op:system_op,
-		query:_test,
+		query:_test_,
 		nested_table:false
-	},function(op){
+	},function(op){		
+
 		if(op.flag==true){
 			callback({ status:{flag:"success",info:""},ziel:{server_data:op.res} });
 		}else{
@@ -26,6 +28,9 @@ module.exports.select_data=function(op,callback){
 module.exports.insert_data=function(op,callback){
 
 	var system_op=op;
+
+
+
 	var ziel=op.ziel; // Data from client 
 	var _test="insert into test(test_value,test_string) values(12,'test-string-1') ";/*use this query when no fiel:value passed */
 
@@ -89,12 +94,22 @@ module.exports.delete_data=function(op,callback){
 /*Socket*/
 module.exports.test_booster=function(op,callback){
     console.log("Booster working");
+    var system_op=op;
     var ziel=op.ziel;
     if(ziel.a>0){
 		callback({ status:{flag:"success",info:""},ziel:{a:"No data"} });
     }else{
 		callback({ status:{flag:"fail",info:"Data is less than a Zero"},ziel:{a:"Data value passed > 0"} });    	
     }
+
+    require("jswalker_booster").booster({
+	 system_op:system_op,
+	 broadcast:{
+	 	self:true,
+		proto:"hi1",
+		ziel:{ziel_field:"ziel_value"}
+ 	 }
+});
 };
 
 module.exports.test_redis=function(op,callback){

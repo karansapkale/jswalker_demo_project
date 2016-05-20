@@ -7,71 +7,12 @@
 
 
 
-
-
 /*jswalker*/
 function jswalker(){
   this.booster_socket="";
 };var jswalker_obj = new jswalker();
 
 
-jswalker.prototype.defrost=function(op){
-var $elem=op.element;
-	var  e=op.e;
-	
-	$elem.find(".jsw-status-icon").find(".jsw-status-fa").removeClass("fa fa-spin fa-spinner");
-	
-	$elem.find(".jsw-status-icon").hide();
-
-
-	if(op.flag=="success"){
-	  
-	  $elem.find(".jsw-status-icon").find(".jsw-status-fa-icon-success").addClass("fa fa-check");
-	  $elem.find(".success").show();	
-	}else{
-	  
-	  $elem.find(".jsw-status-icon").find(".jsw-status-fa-icon-fail").addClass("fa fa-close");
-	  $elem.find(".fail").show();	
-
-	}
-	// $elem.find(".fail").show();
-
-setTimeout(function(){
-		$elem.find(".jsw-status-icon").hide("fast");
-	},1000);
-
-};
-
-jswalker.prototype.frost=function(op){
-	var $elem=op.element;
-	var  e=op.e;
-	var pos=$elem.position();
-	var	top=e.pageY;
-	var left=e.pageX;
-	$elem.find(".jsw-status-fa-icon-progress").addClass("fa fa-spin fa-spinner");
-	$elem.find(".progress").show();
-
-	
-	
-	//$elem.closest(".jsw-button-block").find(".jsw-button-spinner").html(jswalker_obj.wait_status);
-};
-
-
-jswalker.prototype.wire_response_data_error=function(wire_op){	
-  var dom_="<div class='jsw-ack-interrupt jsw-ack' >"+
-					"<div class='jsw-ack-first-panel'>"+
-						"<div class='jsw-ack-close-icon'><i class='fa fa-close'></i></div>"+
-						"<div class='jsw-ack-title' title='No flag passed'>Js-Walker syntax error</div>"+
-					 "</div>"+
-					"<div class='jsw-ack-second-panel'>"+      					
-  					"<div class='jsw-ack-info'><pre>syntax:<br>{<br>  status:{<br>   flag:(_success_|_fail_),<br>   tag:'Identifier for ACK',<br>   title:'ACK title',<br>   info:'Little bit informative'<br>  },<br>  ziel:{}<br>}</pre></div>"+
-					"</div>"+
-			"</div>";
-   if($(".jsw-ack-container").length==0){
-	  $("body").append("<div class='jsw-ack-container'></div>");
-   }				
-   $(".jsw-ack-container").append(dom_);
-};
 
 jswalker.prototype.wire=function(wire_op){
 
@@ -89,6 +30,7 @@ var url=wire_op.url,
   		}
 	}
 
+	var ajax_request_time=0;
 	$.ajax({
 		url:url,
 		type:type,
@@ -96,10 +38,14 @@ var url=wire_op.url,
 		cache: false,
 
 		beforeSend:function(){
+			//ajax_request_time=Date.now();
 		},
 		success:function(success_op){
+			//ajax_request_time=Date.now()-ajax_request_time;
+			
 
-			if(success_op.syntax_error_reporting.flag==true){
+			if(success_op.console_trace.flag==true){
+				//console.log(ajax_request_time+ " milliseconds : Ajax");
 				console.log(success_op);	
 			}
 
@@ -134,10 +80,8 @@ jswalker.prototype.booster=function(booster_op,callback){
 	
 			if(booster_op.active==true){
 				
-		//setTimeout(function(){
 
 				var jsw_controller=booster_op.controller;
-				//jswalker_obj.booster_socket= io.connect("http://localhost:8081");
 
 				jswalker_obj.booster_socket= io.connect(location.protocol+"//"+location.hostname+":8081");
 
@@ -147,8 +91,9 @@ jswalker.prototype.booster=function(booster_op,callback){
 				});
 
 				jswalker_obj.booster_socket.on("message",function(booster_success_op,notifier){			
+						
 
-					if(booster_op.syntax_error_reporting.flag==true){
+					if(booster_success_op.console_trace.flag==true){
 						console.log(booster_success_op);		
 					}
 				
@@ -161,7 +106,7 @@ jswalker.prototype.booster=function(booster_op,callback){
 							});	
 						}else{
 							console.log("No prototype found with name ");
-							if(booster_success_op.syntax_error_reporting.flag==true){
+							if(booster_success_op.console_trace.flag==true){
 									console.log(booster_success_op);		
 							}
 						}
@@ -176,15 +121,16 @@ jswalker.prototype.booster=function(booster_op,callback){
 			var jsw_interrupt=booster_op.interrupt;
 			var jsw_warning=booster_op.warning;
 
-			
+				//var socket_request_time=Date.now();
 				jswalker_obj.booster_socket.send({model:booster_op.model,method:booster_op.method,ziel:booster_op.ziel},function(booster_res_op){
 					/* check syntax */
-					
+					//socket_request_time=Date.now()-socket_request_time;
+					//console.log(socket_request_time+ " milliseconds : Socket");					
 
-				if(booster_res_op.syntax_error_reporting.flag==true){
+				if(booster_res_op.console_trace.flag==true){
+
 					console.log(booster_res_op);
 				}
-
 
 					   if(booster_res_op.status.flag=="success"){
 						if(jsw_success){				  

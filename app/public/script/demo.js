@@ -7,6 +7,10 @@ $(document).ready(function(){
 	/*Enable socket*/
 	jswalker_obj.booster({active:true},function(socket_op){
 		console.log('Booster activate');
+		socket_op.jswalker.prototype.hi1=function(pick,notifier){
+			alert("Hi1;")
+			console.log(pick);
+		};
 	});
 
 
@@ -36,7 +40,7 @@ $(document).ready(function(){
 
 
 	/*Wire*/
-		jswalker_obj.wire({url:"demo/select_data",ziel:{a:1},type:"POST",
+		jswalker_obj.wire({url:"/demo/select_data",ziel:{a:1},type:"POST",
 				success:function(success_op){
 					var ziel=success_op.ziel;
 					console.log(success_op);

@@ -1,15 +1,6 @@
 
-/********************CONFIGURE-YOUR-APP********************/
-// 'use strict';
-// require('@risingstack/trace');
-
-
-
-
-
 var JSWALKER=require("jswalker_system/system/js_walker.js");
 
-//require("./system/js_walker.js").load({
 JSWALKER.load({	
 
 	heroku:{flag:false},
@@ -21,13 +12,15 @@ JSWALKER.load({
 	base:{
 		app_path:process.cwd(),
 		port:80,
-		js:"http://localhost:80/script",
-		css:"http://localhost:80/style",
-		image:"http://localhost:80/images"
+		js:"http://127.0.0.1:80/script",
+		css:"http://127.0.0.1:80/style",
+		image:"http://127.0.0.1:80/images"
 	},
 	/*Node js server it self*/
 
 	cluster:{flag:true},
+
+
 
 	redis:{flag:true,port:6379},
 
@@ -36,11 +29,11 @@ JSWALKER.load({
 
 	/*doT.js template engine*/
 	template:{
-		cache:false
+		cache:true
 	},
 
 	/*If any syntax error in controller or model automatically send error and line number in interrupt callback*/
-	syntax_error_reporting:{flag:true},
+	console_trace:{flag:true},
 	
 	//some routing handling functionality
 	default_routing:{
