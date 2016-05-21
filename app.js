@@ -8,6 +8,8 @@ JSWALKER.load({
 	/*flag:true ===> Put Certificate into ssl_certificate folder*/ 
 	ssl:{flag:false,port:443,certificate:"",key:""},
 
+	memory_trace:{flag:true},
+
 	/*Node js server it self*/
 	base:{
 		app_path:process.cwd(),

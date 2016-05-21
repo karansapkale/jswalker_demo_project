@@ -106,7 +106,7 @@ module.exports.test_booster=function(op,callback){
 	 system_op:system_op,
 	 broadcast:{
 	 	self:true,
-		proto:"hi1",
+		proto:"group_proto",
 		ziel:{ziel_field:"ziel_value"}
  	 }
 });

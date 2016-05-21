@@ -7,11 +7,12 @@ $(document).ready(function(){
 	/*Enable socket*/
 	jswalker_obj.booster({active:true},function(socket_op){
 		console.log('Booster activate');
-		socket_op.jswalker.prototype.hi1=function(pick,notifier){
-			alert("Hi1;")
+		socket_op.jswalker.prototype.group_proto=function(pick,notifier){
 			console.log(pick);
 		};
 	});
+
+
 
 
 	/*Socket*/
@@ -50,6 +51,9 @@ $(document).ready(function(){
 				}
 		 });
 	/*Wire*/	
+
+
+	
 
 	
 });
