@@ -41,7 +41,7 @@
 
     "https": "^1.0.0",
 
-    "jswalker_system": "0.0.15",
+    "jswalker_system": "0.1.0",
     "jswalker_query": "0.0.12",
     "jswalker_booster": "0.0.12",
     "jswalker_redis": "0.0.12",
