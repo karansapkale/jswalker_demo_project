@@ -109,7 +109,9 @@ module.exports.test_booster=function(op,callback){
 		proto:"group_proto",
 		ziel:{ziel_field:"ziel_value"}
  	 }
-});
+   });
+
+    
 };
 
 module.exports.test_redis=function(op,callback){
