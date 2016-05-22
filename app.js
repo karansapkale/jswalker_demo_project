@@ -6,7 +6,7 @@ JSWALKER.load({
 	heroku:{flag:false},
 
 	/*flag:true ===> Put Certificate into ssl_certificate folder*/ 
-	ssl:{flag:false,port:443,certificate:"",key:""},
+	ssl:{flag:false,port:443,socket_server_bind_port:8082,certificate:"ubot24.com",key:"ubot24.com"},
 
 	memory_trace:{flag:true},
 
@@ -14,24 +14,21 @@ JSWALKER.load({
 	base:{
 		app_path:process.cwd(),
 		port:80,
-		js:"http://127.0.0.1:80/script",
-		css:"http://127.0.0.1:80/style",
-		image:"http://127.0.0.1:80/images"
+		js:"/script",
+		css:"/style",
+		image:"/images"
 	},
 	/*Node js server it self*/
 
 	cluster:{flag:true},
 
-
-
 	redis:{flag:true,port:6379},
 
-	socket:{flag:true,port:8081,flavour:"socket-io"}, //flavour:single-core-socket-io,multi-core-single-socket-io,multi-core-with-socket-cluster
-
+	socket:{flag:true,port:8081}, //flavour:single-core-socket-io,multi-core-single-socket-io,multi-core-with-socket-cluster
 
 	/*doT.js template engine*/
 	template:{
-		cache:true
+		cache:false
 	},
 
 	/*If any syntax error in controller or model automatically send error and line number in interrupt callback*/
