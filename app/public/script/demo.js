@@ -4,6 +4,7 @@ function demo(){
 
 $(document).ready(function(){
 
+	
 	/*Enable socket*/
 	jswalker_obj.booster({active:true},function(socket_op){
 		console.log('Booster activate');
@@ -11,8 +12,6 @@ $(document).ready(function(){
 			console.log(pick);
 		};
 	});
-
-
 
 
 	/*Socket*/

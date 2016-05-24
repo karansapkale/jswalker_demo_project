@@ -8,14 +8,21 @@ var demo = {
 		var model=op.model;
 
 		var demo_model=model.get(system_op,"demo");
+		var ziel=op.ziel;
+		var params=op.params;
+
+		 
+
+		console.log(params);
 
 
- demo_model.select_data(op,function(demo_model_op){
+
+ // demo_model.select_data(op,function(demo_model_op){
 				
-				if(demo_model_op.status.flag=="success"){
-				}else{
-				}
-			});
+	// 			if(demo_model_op.status.flag=="success"){
+	// 			}else{
+	// 			}
+	// 		});
 
 		var auth=op.auth;
 			auth.test(op,function(auth_op){

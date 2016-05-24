@@ -1,6 +1,7 @@
 
 var JSWALKER=require("jswalker_system/system/js_walker.js");
 
+
 JSWALKER.load({	
 
 	heroku:{flag:false},
@@ -10,7 +11,7 @@ JSWALKER.load({
 	
 	ssl_socket:{flag:false},
 
-	memory_trace:{flag:false},
+	memory_trace:{flag:true},
 
 	/*Node js server it self*/
 	base:{
@@ -24,7 +25,7 @@ JSWALKER.load({
 
 	cluster:{flag:true},
 
-	redis:{flag:false,port:6379},
+	redis:{flag:true,port:6379},
 
 	socket:{flag:true,port:8081}, //flavour:single-core-socket-io,multi-core-single-socket-io,multi-core-with-socket-cluster
 
@@ -54,9 +55,13 @@ JSWALKER.load({
 		mongo:{
 		  flag:false,name:"test",port:27017
 		},
-		mysql:{
-			name:"jswalker_test",host:"127.0.0.1",user:"root",password:"",mysql_path:false
-		} 
+		// mysql:{
+		// 	name:"jswalker_test",host:"127.0.0.1",user:"root",password:"",mysql_path:false
+		// },
+		mysql_pool:[
+			{name:"jswalker_test",host:"127.0.0.1",user:"root",password:"",mysql_path:false},
+			{name:"chumbucket",host:"127.0.0.1",user:"root",password:"",mysql_path:false}
+		],
 	},
 
 	/*Pass object that used in long time.*/	
@@ -66,3 +71,24 @@ JSWALKER.load({
 });
 
 /********************CONFIGURE-YOUR-APP********************/
+// var monitor = require('event-loop-monitor');
+ 
+// // data event will fire every 4 seconds 
+// monitor.on('data', function(latency) {
+//   console.log(latency); // { p50: 1026, p90: 1059, p95: 1076, p99: 1110, p100: 1260 }    
+// });
+ 
+// monitor.resume(); // to start measuring 
+ 
+// later... 
+
+// monitoring.on('initialized', function (env) {
+//     env = monitoring.getEnvironment();
+//     for (var entry in env) {
+//         console.log(entry + ':' + env[entry]);
+//     };
+// });
+ 
+// monitoring.on('cpu', function (cpu) {
+//     console.log('[' + new Date(cpu.time) + '] CPU: ' + cpu.process);
+// });

@@ -1,6 +1,7 @@
 
 
 
+
 /*Ajax*/
 module.exports.select_data=function(op,callback){
 
@@ -9,11 +10,17 @@ module.exports.select_data=function(op,callback){
 	var mongo=op.mongo;
 
 	var _test_="select * from test";
+
+//console.log(system_op.mysql_pool);
+
 	require("jswalker_query").select({
 		system_op:system_op,
 		query:_test_,
-		nested_table:false
+		table_separator:true,
+		database:"jswalker_test"
 	},function(op){		
+
+		console.log(op.res);
 
 		if(op.flag==true){
 			callback({ status:{flag:"success",info:""},ziel:{server_data:op.res} });
@@ -93,7 +100,7 @@ module.exports.delete_data=function(op,callback){
 
 /*Socket*/
 module.exports.test_booster=function(op,callback){
-    console.log("Booster working");
+    //console.log("Booster working");
     var system_op=op;
     var ziel=op.ziel;
     if(ziel.a>0){
@@ -116,7 +123,7 @@ module.exports.test_booster=function(op,callback){
 
 module.exports.test_redis=function(op,callback){
 
-	console.log("Redis model working");
+	//console.log("Redis model working");
 	var redis_client=op.redis_client;
 
 
