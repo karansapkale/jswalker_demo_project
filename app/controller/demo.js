@@ -1,28 +1,19 @@
+
 var demo = {
 	index:function(op,callback){
 		
-		//callback({page:'demo.html',ziel:{ server_data:[{test_value:0,test_string:'str-0'}] } });  //simple page rendering
 		var system_op=op;
 		
-		/*With Authentication*/
 		var model=op.model;
 
-		var demo_model=model.get(system_op,"demo");
 		var ziel=op.ziel;
 		var params=op.params;
 
-		 
-
-		console.log(params);
-
-
-
- // demo_model.select_data(op,function(demo_model_op){
-				
-	// 			if(demo_model_op.status.flag=="success"){
-	// 			}else{
-	// 			}
-	// 		});
+		/*With Authentication*/
+		// var model_data=model.get(system_op,"demo");
+		// model_data.select_data(system_op,function(){
+			
+		// });
 
 		var auth=op.auth;
 			auth.test(op,function(auth_op){
@@ -31,10 +22,11 @@ var demo = {
 						callback({page:'demo.html',ziel:server_data});
 				 }
 			});
-
 	},
 
 	select_data:function(op,callback){
+
+
 		var system_op=op;
 		var model=op.model; /**/
 		var demo_model=model.get(system_op,"demo");
@@ -43,9 +35,9 @@ var demo = {
 			demo_model.select_data(op,function(demo_model_op){
 				
 				if(demo_model_op.status.flag=="success"){
-					callback({ status:{flag:"success",info:""},ziel:demo_model_op.ziel });
+					//callback({ status:{flag:"success",info:""},ziel:demo_model_op.ziel });
 				}else{
-					callback({ status:{flag:"fail",info:demo_model_op.status.info},ziel:{} });
+					//callback({ status:{flag:"fail",info:demo_model_op.status.info},ziel:{} });
 				}
 			});
 
@@ -75,7 +67,7 @@ var demo = {
 		var model=op.model; /**/
 		var demo_model=model.get(system_op,"demo");
 
-			/*Insert*/
+			/*Update*/
 			demo_model.update_data(op,function(demo_model_op){
 				if(demo_model_op.status.flag=="success"){
 					callback({ status:{flag:"success",info:""},ziel:demo_model_op.ziel });
@@ -83,7 +75,7 @@ var demo = {
 					callback({ status:{flag:"fail",info:demo_model_op.status.info},ziel:{} });
 				}
 			});
-			/*Insert*/
+			/*Update*/
 	},
 
 
@@ -92,7 +84,7 @@ var demo = {
 		var model=op.model; /**/
 		var demo_model=model.get(system_op,"demo");
 
-			/*Insert*/
+			/*Delete*/
 			demo_model.delete_data(op,function(demo_model_op){
 				if(demo_model_op.status.flag=="success"){
 					callback({ status:{flag:"success",info:""},ziel:demo_model_op.ziel });
@@ -100,7 +92,7 @@ var demo = {
 					callback({ status:{flag:"fail",info:demo_model_op.status.info},ziel:{} });
 				}
 			});
-			/*Insert*/
+			/*Delete*/
 	}
 
 

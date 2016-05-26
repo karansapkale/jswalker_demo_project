@@ -6,14 +6,12 @@ JSWALKER.load({
 
 	heroku:{flag:false},
 
-	/*flag:true ===> Put Certificate into ssl_certificate folder*/ 
 	ssl:{flag:false,port:443,socket_server_bind_port:8082,certificate:"",key:""},
 	
 	ssl_socket:{flag:false},
 
 	memory_trace:{flag:true},
 
-	/*Node js server it self*/
 	base:{
 		app_path:process.cwd(),
 		port:80,
@@ -21,25 +19,21 @@ JSWALKER.load({
 		css:"/style",
 		image:"/images"
 	},
-	/*Node js server it self*/
 
 	cluster:{flag:true},
 
 	redis:{flag:true,port:6379},
 
-	socket:{flag:true,port:8081}, //flavour:single-core-socket-io,multi-core-single-socket-io,multi-core-with-socket-cluster
+	socket:{flag:true,port:8081},
 
-	/*doT.js template engine*/
 	template:{
-		cache:true
+		cache:false
 	},
 
-	/*If any syntax error in controller or model automatically send error and line number in interrupt callback*/
 	console_trace:{flag:true},
 	
-	//some routing handling functionality
 	default_routing:{
-		call_index_when_no_method_found:false, //when your controller does not contain method the default index method called if flag is set to true 
+		call_index_when_no_method_found:false,
 		user_friendly_error:false,
 		redirect:{flag:true,from:"/",to:"/demo"},		
 	},
@@ -47,7 +41,6 @@ JSWALKER.load({
 	authentication:{
 		flag:true,
 		controller:"authentication",
-		prevent_url:["/login","/signup"]
 	},
 
 	/*Database */
@@ -55,40 +48,10 @@ JSWALKER.load({
 		mongo:{
 		  flag:false,name:"test",port:27017
 		},
-		// mysql:{
-		// 	name:"jswalker_test",host:"127.0.0.1",user:"root",password:"",mysql_path:false
-		// },
 		mysql_pool:[
-			{name:"jswalker_test",host:"127.0.0.1",user:"root",password:"",mysql_path:false},
-			{name:"chumbucket",host:"127.0.0.1",user:"root",password:"",mysql_path:false}
+			{name:"jswalker_test",host:"127.0.0.1",user:"root",password:"",mysql_path:false}
 		],
 	},
 
-	/*Pass object that used in long time.*/	
 },function(op){
-	//var memory__=process.memoryUsage();       
-		//console.log(memory__);
 });
-
-/********************CONFIGURE-YOUR-APP********************/
-// var monitor = require('event-loop-monitor');
- 
-// // data event will fire every 4 seconds 
-// monitor.on('data', function(latency) {
-//   console.log(latency); // { p50: 1026, p90: 1059, p95: 1076, p99: 1110, p100: 1260 }    
-// });
- 
-// monitor.resume(); // to start measuring 
- 
-// later... 
-
-// monitoring.on('initialized', function (env) {
-//     env = monitoring.getEnvironment();
-//     for (var entry in env) {
-//         console.log(entry + ':' + env[entry]);
-//     };
-// });
- 
-// monitoring.on('cpu', function (cpu) {
-//     console.log('[' + new Date(cpu.time) + '] CPU: ' + cpu.process);
-// });

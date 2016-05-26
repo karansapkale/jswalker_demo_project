@@ -109,6 +109,14 @@ jswalker.prototype.booster=function(booster_op,callback){
 						console.log(socket_model_error_op);
 				});
 
+				jswalker_obj.booster_socket.on("SOCKET_QUERY_ERROR",function(socket_query_error_op){			
+					if(socket_query_error_op.console_trace.flag==true){
+						console.log(socket_query_error_op);		
+					}
+				});
+
+
+
 				jswalker_obj.booster_socket.on("message",function(booster_success_op,notifier){			
 						
 
@@ -185,6 +193,7 @@ jswalker.prototype.booster=function(booster_op,callback){
 
 function dot_function(){
  this.template=[];
+ this.worker_block=[];
 }var dot_obj = new dot_function();
 /*doT.js*/
 

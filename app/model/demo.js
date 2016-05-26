@@ -1,7 +1,4 @@
 
-
-
-
 /*Ajax*/
 module.exports.select_data=function(op,callback){
 
@@ -9,38 +6,28 @@ module.exports.select_data=function(op,callback){
 	var ziel=op.ziel; // Data from client 
 	var mongo=op.mongo;
 
+
 	var _test_="select * from test";
-
 //console.log(system_op.mysql_pool);
-
 	require("jswalker_query").select({
 		system_op:system_op,
 		query:_test_,
 		table_separator:true,
 		database:"jswalker_test"
-	},function(op){		
-
-		console.log(op.res);
-
-		if(op.flag==true){
-			callback({ status:{flag:"success",info:""},ziel:{server_data:op.res} });
-		}else{
-			callback({ status:{flag:"fail",info:op.query_trace},ziel:{} });
-		}
+	},function(op){
+		callback({ status:{flag:"success",info:""},ziel:{a:1} });		
 	});
 
+
+			
 };
 
 
 module.exports.insert_data=function(op,callback){
 
 	var system_op=op;
-
-
-
 	var ziel=op.ziel; // Data from client 
 	var _test="insert into test(test_value,test_string) values(12,'test-string-1') ";/*use this query when no fiel:value passed */
-
 
 	require("jswalker_query").select({
 		system_op:system_op,
@@ -103,67 +90,71 @@ module.exports.test_booster=function(op,callback){
     //console.log("Booster working");
     var system_op=op;
     var ziel=op.ziel;
-    if(ziel.a>0){
+    require("jswalker_query").select({
+		system_op:system_op,
+		query:"select * from test",
+		table_separator:true,
+		database:"jswalker_test"
+	},function(op){
+	
+		
+if(ziel.a>0){
 		callback({ status:{flag:"success",info:""},ziel:{a:"No data"} });
     }else{
 		callback({ status:{flag:"fail",info:"Data is less than a Zero"},ziel:{a:"Data value passed > 0"} });    	
     }
 
-    require("jswalker_booster").booster({
-	 system_op:system_op,
-	 broadcast:{
-	 	self:true,
-		proto:"group_proto",
-		ziel:{ziel_field:"ziel_value"}
- 	 }
-   });
-
+	});
     
 };
 
 module.exports.test_redis=function(op,callback){
-
+  var system_op=op;
+    var ziel=op.ziel;
 	//console.log("Redis model working");
 	var redis_client=op.redis_client;
 
 
 	if(redis_client){
 
+		 
+		console.log("Redis support remove");
+
 			/*setex*/
-			require("jswalker_redis").setex(redis_client,{key:"test-key-1",value:{field:'test-value'},ttl:10 },function(err,data){	
-				//console.log(err);
-				//console.log(data);
-			});
+			// require("jswalker_redis").setex(redis_client,{key:"test-key-1",value:{field:'test-value'},ttl:10 },function(err,data){	asd
+			// 	//console.log(err);
+			// 	//console.log(data);
+			// });
 
 
-			// /*Set Redis*/
-			require("jswalker_redis").set(redis_client,{key:"test-key",value:{field:'test-value'} },function(err,data){	
-				//console.log(err);
-				//console.log(data);
-			});
+			// // /*Set Redis*/
+			// require("jswalker_redis").set(redis_client,{key:"test-key",value:{field:'test-value'} },function(err,data){	
+			// 	//console.log(err);
+			// 	//console.log(data);
+			// });
 
-			/*update Redis*/
-			require("jswalker_redis").update(redis_client,{key:"test-key",value:{field:'new-test-value'} },function(err,data){	
-				//console.log(err);
-				//console.log(data);
-			});
-
-
-			// /*Get Redis*/
-			require("jswalker_redis").get(redis_client,{key:"test-key"},function(err,data){	
-				//console.log(err);
-				//console.log(data);
-				callback({ status:{flag:"success",info:""},ziel:{redis_data:data} });
-			});
+			// /*update Redis*/
+			// require("jswalker_redis").update(redis_client,{key:"test-key",value:{field:'new-test-value'} },function(err,data){	
+			// 	//console.log(err);
+			// 	//console.log(data);
+			// });
 
 
+			// // /*Get Redis*/
+			// require("jswalker_redis").get(redis_client,{key:"test-key"},function(err,data){	
+			// 	//console.log(err);
+			// 	//console.log(data);
+			// 	callback({ status:{flag:"success",info:""},ziel:{redis_data:data} });
+			// });
 
 
-			/*delete Redis*/
-			require("jswalker_redis").del(redis_client,{key:"test-key"},function(err,data){	
-				//console.log(err);
-				//console.log(data);
-			});
+
+
+			// /*delete Redis*/
+			// require("jswalker_redis").del(redis_client,{key:"test-key"},function(err,data){	
+			// 	//console.log(err);
+			// 	//console.log(data);
+			// });
 	}else{
 		console.log("REDIS FUNCTIONALITY ONLY WORK WHEN REDIS IS RUNNING AND FLAG SET TRUE IN APP.JS");	
 	}

@@ -32,12 +32,14 @@
     "express-dot-engine": "1.0.6",
     "express-session": "^1.13.0",
     "https": "^1.0.0",
+    
     "jswalker_booster": "0.0.12",
-    "jswalker_error": "0.0.13",
-    "jswalker_mx": "0.0.12",
-    "jswalker_query": "0.0.13",
-    "jswalker_redis": "0.0.12",
-    "jswalker_system": "0.1.1",
+    "jswalker_error": "0.0.14",
+    
+    "jswalker_query": "0.0.14",
+    
+    "jswalker_system": "0.1.2",
+
     "method-override": "^2.3.5",
     "mysql": "^2.10.2",
     "mysql2": "^1.0.0-rc.1",
