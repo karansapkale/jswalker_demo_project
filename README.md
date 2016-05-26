@@ -13,4 +13,3 @@ jswalker_redis and jswalker_mx is now no longer part of core jswalker_system.
 #Next release
 
 Official date of release jswalker(1.0.0 ) will be 31-May-2016
-
