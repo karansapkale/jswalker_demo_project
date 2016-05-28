@@ -10,11 +10,11 @@ JSWALKER.load({
 	
 	ssl_socket:{flag:false},
 
-	memory_trace:{flag:true},
+	memory_trace:{flag:false},
 
 	base:{
 		app_path:process.cwd(),
-		port:process.env.PORT | 80,
+		port:process.env.PORT || 80,
 		js:"/script",
 		css:"/style",
 		image:"/images"
@@ -22,7 +22,7 @@ JSWALKER.load({
 
 	cluster:{flag:true},
 
-	redis:{flag:true,port:6379},
+	redis:{flag:false,port:6379},
 
 	socket:{flag:true,port:8081},
 

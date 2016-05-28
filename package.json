@@ -45,6 +45,7 @@
     "socket.io": "1.4.6",
     "syntax-error": "1.1.6",
     "winston": "^2.2.0"
+    
   },
   "devDependencies": {},
   "license": "MIT"
