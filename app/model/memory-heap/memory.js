@@ -3,7 +3,7 @@ module.exports.memory=function(op,callback){
     /*Read json file of Memory heap data */
  		 	 //var fs   = require('fs');
              var system_op = op;
-             var _memory_="select * from memory_trace";
+             var _memory_="select * from (select * from memory_trace order by memory_trace_id desc limit 1000 ) memory_trace order by memory_trace_id asc";
 
              require("jswalker_query").select({
                  system_op:system_op,
@@ -13,6 +13,7 @@ module.exports.memory=function(op,callback){
                  if(op.flag==true){
                      callback({ status:{flag:"success",info:""},ziel:{memory:op.res} });
                  }else{
+                     //console.log(op.err);
                      callback({ status:{flag:"fail",info:op.query_trace},ziel:{} });
                  }
              });

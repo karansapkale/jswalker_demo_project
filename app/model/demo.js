@@ -12,8 +12,8 @@ module.exports.select_data=function(op,callback){
 	require("jswalker_query").select({
 		system_op:system_op,
 		query:_test_,
-		table_separator:true,
-		database:"jswalker_test"
+		table_separator:true
+		
 	},function(op){
 		callback({ status:{flag:"success",info:""},ziel:{a:1} });		
 	});
@@ -118,7 +118,7 @@ module.exports.test_redis=function(op,callback){
 	if(redis_client){
 
 		 
-		console.log("Redis support remove");
+		console.log("Redis Block");
 
 			/*setex*/
 			// require("jswalker_redis").setex(redis_client,{key:"test-key-1",value:{field:'test-value'},ttl:10 },function(err,data){	asd

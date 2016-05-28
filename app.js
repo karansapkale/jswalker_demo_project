@@ -1,10 +1,10 @@
 
-var JSWALKER=require("jswalker_system/system/js_walker.js");
+var JSWALKER=require("jswalker/system/js_walker.js");
 
 
 JSWALKER.load({	
 
-	heroku:{flag:false},
+	// heroku:{flag:false},
 
 	ssl:{flag:false,port:443,socket_server_bind_port:8082,certificate:"",key:""},
 	
@@ -14,7 +14,7 @@ JSWALKER.load({
 
 	base:{
 		app_path:process.cwd(),
-		port:80,
+		port:process.env.PORT | 80,
 		js:"/script",
 		css:"/style",
 		image:"/images"
@@ -22,12 +22,12 @@ JSWALKER.load({
 
 	cluster:{flag:true},
 
-	redis:{flag:true,port:6379},
+	redis:{flag:false,port:6379},
 
 	socket:{flag:true,port:8081},
 
 	template:{
-		cache:false
+		cache:true
 	},
 
 	console_trace:{flag:true},

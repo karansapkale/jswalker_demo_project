@@ -35,9 +35,10 @@ var demo = {
 			demo_model.select_data(op,function(demo_model_op){
 				
 				if(demo_model_op.status.flag=="success"){
-					//callback({ status:{flag:"success",info:""},ziel:demo_model_op.ziel });
+					//demo_model_op.ziel.b={c:"Hello jayesh"};
+					callback({ status:{flag:"success",info:""},ziel:demo_model_op.ziel });
 				}else{
-					//callback({ status:{flag:"fail",info:demo_model_op.status.info},ziel:{} });
+					callback({ status:{flag:"fail",info:demo_model_op.status.info},ziel:{} });
 				}
 			});
 
