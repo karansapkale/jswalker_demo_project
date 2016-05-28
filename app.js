@@ -22,7 +22,7 @@ JSWALKER.load({
 
 	cluster:{flag:true},
 
-	redis:{flag:false,port:6379},
+	redis:{flag:true,port:6379},
 
 	socket:{flag:true,port:8081},
 
