@@ -1,11 +1,14 @@
 
 /*Ajax*/
+
 module.exports.select_data=function(op,callback){
 
 	var system_op=op;
 	var ziel=op.ziel; // Data from client 
 	var mongo=op.mongo;
+	var redis_client=op.redis_client;
 
+	var fs=require("fs");
 
 	var _test_="select * from test";
 //console.log(system_op.mysql_pool);
@@ -19,9 +22,17 @@ module.exports.select_data=function(op,callback){
 	});
 
 
+
 			
 };
 
+
+module.exports.test_model=function(op,callback){
+
+	var redis_client=op.redis_client;
+		console.log("Test model");
+
+};
 
 module.exports.insert_data=function(op,callback){
 
@@ -111,14 +122,14 @@ if(ziel.a>0){
 module.exports.test_redis=function(op,callback){
   var system_op=op;
     var ziel=op.ziel;
-	//console.log("Redis model working");
 	var redis_client=op.redis_client;
 
 
 	if(redis_client){
 
-		 
 		console.log("Redis Block");
+
+		
 
 			/*setex*/
 			// require("jswalker_redis").setex(redis_client,{key:"test-key-1",value:{field:'test-value'},ttl:10 },function(err,data){	asd

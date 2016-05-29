@@ -1,4 +1,5 @@
 
+
 var JSWALKER=require("jswalker/system/js_walker.js");
 
 
@@ -24,7 +25,7 @@ JSWALKER.load({
 
 	redis:{flag:false,port:6379},
 
-	socket:{flag:true,port:8081},
+	socket:{flag:false,port:8081},
 
 	template:{
 		cache:true

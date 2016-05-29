@@ -1,4 +1,3 @@
-
 var demo = {
 	index:function(op,callback){
 		

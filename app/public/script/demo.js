@@ -49,7 +49,16 @@ $(document).ready(function(){
 				}
 		 });
 
-		
+		jswalker_obj.booster({model:"demo",method:"test_model",ziel:{a:1,hi:{test:"Test value"}},
+				success:function(success_op){
+					var ziel=success_op.ziel;
+					console.log(success_op);
+				},
+				fail:function(fail_op){
+					console.log(fail_op);
+				}
+		 });
+
 	/*Wire*/	
 
 
