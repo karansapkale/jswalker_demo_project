@@ -9,7 +9,7 @@ try{
 
 
 /*Init template */
- dot_obj.template['demo_init']="{{ for(var i=0;i<it.length;i++) {  }}"+
+ dot_obj.chunk['demo_init']="{{ for(var i=0;i<it.length;i++) {  }}"+
 
  		"<p>Test value : {{=it[i].test_value}} </p>"+
 
@@ -29,7 +29,7 @@ try{
 
 /*Template compile*/
   var data=model_data.server_data;
-  var demo_template=doT.template(dot_obj.template['demo_init']);
+  var demo_template=doT.template(dot_obj.chunk['demo_init']);
   var html=demo_template(data);
   $(".dot-template-client-side-rendering-result").html(html);
 /*Template compile*/
@@ -48,7 +48,7 @@ try{
 
 }catch(err){
 
-	dot_obj.template['demo_init']="{{ for(var i=0;i<it.length;i++) {  }}"+
+	dot_obj.chunk['demo_init']="{{ for(var i=0;i<it.length;i++) {  }}"+
 
  		"<p>Test value : {{=it[i].test_value}} </p>"+
 

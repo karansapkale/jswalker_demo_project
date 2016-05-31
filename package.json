@@ -33,7 +33,7 @@
     "express-session": "^1.13.0",
     "https": "^1.0.0",
     
-    "jswalker": "0.1.3",
+    "jswalker": "1.0.0",
 
     "method-override": "^2.3.5",
     "mysql": "^2.10.2",
