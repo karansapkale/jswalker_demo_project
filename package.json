@@ -1,6 +1,6 @@
 {
-  "name": "Jswalker-Demo",
-  "version": "0.0.1",
+  "name": "Jswalker-Demo-Project",
+  "version": "1.0.1",
   "description": "Jswalker Demo project",
   "author": "Jayesh Sapkale <node.jayesh@gmail.com>",
   "keywords": [
@@ -22,22 +22,25 @@
     "body-parser": "latest",
     "compress": "latest",
     "compression": "latest",
-    "connect": "latest",
-    "connect-redis": "latest",
+    "connect": "^1.9.2",
+    "connect-redis": "^2.4.1",
     "cookie-parser": "latest",
     "debug": "latest",
     "dot": "^1.0.3",
-    "event-loop-monitor": "^0.1.0",
+
+    
     "express": "^4.13.3",
     "express-dot-engine": "1.0.6",
     "express-session": "^1.13.0",
     "https": "^1.0.0",
     
-    "jswalker": "1.0.0",
+    "jswalker": "1.0.1",
 
     "method-override": "^2.3.5",
     "mysql": "^2.10.2",
     "mysql2": "^1.0.0-rc.1",
+
+    "moment-timezone":"0.5.4",
     "nodemailer": "^2.3.2",
     "redis": "^2.6.0-2",
     "redis-session": "^0.1.0",
