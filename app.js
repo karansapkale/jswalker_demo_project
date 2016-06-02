@@ -28,10 +28,10 @@ JSWALKER.load({
 	socket:{flag:false,port:8081},
 
 	template:{
-		cache:true
+		cache:false
 	},
 
-	console_trace:{flag:true},
+	console_trace:{flag:false},
 	
 	default_routing:{
 		call_index_when_no_method_found:false,
